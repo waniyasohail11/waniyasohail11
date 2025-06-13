@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=3">
+<link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
+</head>
+<body class="result-page {{ theme }}">
+    <div class="container">
+        {% if outcome == "win" %}
+            <h2>🎉 You won!</h2>
+            <p>It took you {{ attempts }} attempt{{ 's' if attempts > 1 else '' }}.</p>
+        {% else %}
+            <h2>😢 You lost.</h2>
+            <p>The correct number was <strong>{{ correct_number }}</strong>.</p>
+            <p>Your guesses: {{ guess_history | join(", ") }}</p>
+        {% endif %}
+        <a href="/">Play Again</a>
+    </div>
+</body>
+</html>

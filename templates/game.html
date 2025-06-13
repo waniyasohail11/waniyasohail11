@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Make a Guess</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=3">
+<link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
+</head>
+<body class="game-page {{ theme }}">
+    <div class="container">
+        <h2>Guess the number between {{ range[0] }} and {{ range[1] }}</h2>
+        <p>Attempt {{ attempts + 1 }} of {{ max_attempts }}</p>
+
+        <form method="POST">
+            <input type="number" name="guess" required>
+            <button type="submit">Submit Guess</button>
+        </form>
+
+        {% if hint %}<p class="hint">💡 {{ hint }}</p>{% endif %}
+        {% if guess_history %}<p>Your Guesses: {{ guess_history | join(", ") }}</p>{% endif %}
+    </div>
+</body>
+</html>

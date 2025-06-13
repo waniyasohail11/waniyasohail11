@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guessing Game</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=3">
+<link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
+</head>
+<body class="home-page">
+    <div class="container">
+        <h1 style="color: red;">🎮 Number Game START</h1>
+        <form method="POST">
+            <label>Select Difficulty:</label>
+            <select name="difficulty">
+                <option value="easy">Easy (1-10)</option>
+                <option value="medium">Medium (1-50)</option>
+                <option value="hard">Hard (1-100)</option>
+            </select>
+            <button type="submit">Start Game</button>
+        </form>
+    </div>
+</body>
+</html>
